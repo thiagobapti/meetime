@@ -1,0 +1,119 @@
+body{
+	background-color: #43b756;
+	color: #FFF;
+}
+
+#header{
+	background-color: #3d7145;
+	padding: 15px;
+	
+}
+
+#header #meetime-logo{
+	height: 60px;
+}
+
+#pipeDriveTokenBar{
+	background-color: #3d4145;
+	padding:7px 15px 15px 15px;
+}
+
+
+input.form-control,input.form-control:focus, select {
+    border:none !important;
+    box-shadow: none !important;
+   -webkit-box-shadow: none!important;
+   -moz-box-shadow: none !important;
+   -moz-transition: none !important;
+   -webkit-transition: none !important;
+}
+
+input, textarea, select, a { outline: none !important; }
+
+.dark-icon{
+	background-color: #3d4145;
+}
+
+.centerDarkLabel{
+	text-align: center; 
+	color: #9a9a9a; 
+	font-weight: normal;
+}
+
+.car-card{
+	background-color: #8c8c8c;
+	margin-bottom: 4px;
+	padding: 5px;
+	border-radius: 4px;
+}
+
+#filter{
+	margin-top: 15px;
+}
+
+.no-border{
+	border: none;
+}
+
+#btnEdit{
+	margin-left: 4px;
+}
+
+#lblCount{
+	margin: 15px;
+}
+
+#list {
+	background-color: #808080; 
+	min-height: 600px
+}
+
+.no-lateral-padding{
+	padding-left: 0; 
+	padding-right: 0
+}
+
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#form{
+	padding-top: 25px;
+}
+
+.alert{
+	border-radius: 0px !important;
+	position: absolute;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+    top: 80px;
+    opacity: .8;
+    position: fixed;
+    border:none;
+}
+
+.loading-progress-bar{
+	padding-bottom: 0;
+	margin-bottom: 0;
+	height: 10px;
+	margin-top:10px;
+}
+
+.progress{
+	width: 100%;
+}
+
+.car-list-icon{
+	margin-right: 10px;
+}
+
+.right-panel{
+	background-color: #aeaeae; 
+	min-height: 600px;
+}
+
+.main-nav{
+	margin-top:15px;
+}

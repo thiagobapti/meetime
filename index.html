@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-controller="CarController" ng-cloak>
+<head>
+
+	<title>Meetime</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="app.css">
+	<link rel="icon" href="favicon.png">
+
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="app/CarService.js"></script>
+	<script type="text/javascript" src="app/PipedriveService.js"></script>
+</head>
+<body>
+
+	<div id="alertPanel" class="alert alert-warning text-center" role="alert" ng-show="alertMessage">
+		{{alertMessage}}
+		<div class="progress loading-progress-bar">
+				<div class="progress-bar progress-bar-warning progress-bar-striped active progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+				</div>
+		</div>
+	</div>
+
+	<header id="header" class="container">
+		
+		<img id="meetime-logo" src="assets/logo-inverse.png" alt="Meetime" >
+
+	</header>
+
+	<section id="pipeDriveTokenBar" class="container">
+
+		<form class="form-inline col-xs-12">
+			
+			<div class="form-group col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" >
+		    	
+		    	<label for="pipedriveToken" class="col-xs-12 centerDarkLabel">
+		    		Pipedrive token&nbsp;
+		    		<a href="https://support.pipedrive.com/hc/en-us/articles/207344545" target="new">
+		    			<span class="glyphicon glyphicon-info-sign" title="Como localizar seu Pipedrive token"></span>
+					</a>
+		    	</label>
+
+		    	<div class="input-group col-xs-12" title="Pipedrive Token">
+  					<span id="pipedriveIcon" class="input-group-addon dark-icon">
+  						<img src="assets/pipedrive-icon.png" alt="Pipedrive">
+  					</span>
+  					<input id="pipedriveToken" ng-model="pipedriveToken" type="text" class="form-control" aria-describedby="pipedriveIcon" ng-disabled="customers">
+				</div>
+
+			</div>
+		</form>
+
+	</section>
+
+	<hgroup class="container no-lateral-padding" >
+
+		<aside id="list" class="col-xs-12 col-sm-5 col-md-4">
+
+			<input id="filter" type="text" class="form-control" placeholder="Filtrar" ng-model="filter">
+
+			<div id="lblCount" class="text-center">{{carsFiltered.length}} carro(s)</div>
+
+			<section class="car-card" ng-repeat="car in cars | filter: filter as carsFiltered">
+				<div class="pull-left car-list-icon">
+					<img src="assets/car.png" alt="Car">
+				</div>
+				<strong>{{car.model}}</strong><br>{{car.color}}
+				<button id="btnEdit" class="btn btn-success pull-right no-border" ng-click="edit(car)">Editar</button>
+				<button class="btn btn-danger pull-right no-border" ng-click="remove(car)">Excluir</button>
+				<div class="clearfix"></div>
+			</section>
+
+		</aside>
+
+		<section class="col-xs-12 col-sm-7 col-md-8 right-panel" >
+
+			<nav class="main-nav">
+
+				<button class="btn btn-success no-border" ng-click="new()">Novo</button>
+				<button class="btn btn-warning no-border pull-right" ng-show="car" ng-click="save()">Salvar</button>
+
+			</nav>
+
+			<form id="form" ng-show="car">
+				<div class="row">
+			        <div class="col-xs-6 form-group">
+			            <label>Cliente</label>
+			            <select class="form-control" ng-options= "customer.name for customer in customers" ng-model="customer">
+			            	<option value="">Selecione</option>
+			            </select>
+			        </div>
+			        <div class="col-xs-6 form-group">
+			            <label>Modelo</label>
+			            <input class="form-control" type="text" maxlength="40" ng-model="car.model" />
+			        </div>
+			        <div class="col-xs-6">
+			        	<label>Ano</label>
+			        	<input class="form-control" type="text" maxLength="4" ng-model="car.year" />
+			        </div>
+			        <div class="col-xs-6 form-group">
+			            <label>Cor</label>
+			            <input class="form-control" type="text" maxlength="20" ng-model="car.color" />
+			        </div>
+			    </div>
+			</form>
+
+		</section>
+
+	</hgroup>
+
+</body>
+
+</script>
+
+</html>
